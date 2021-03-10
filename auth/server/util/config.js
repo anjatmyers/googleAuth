@@ -1,13 +1,17 @@
 const keys = {
+  
     client_id:
-    "726744960586-a12bvs5oko19o85t0h40jlaapbo28b9u.apps.googleusercontent.com",
-    project_id: "capstone-project-dc",
+      "687875592500-sek8gqqos2gsjm9lmtge7cpj96a5alqu.apps.googleusercontent.com",
+    project_id: "quickstart-1614877546717",
     auth_uri: "https://accounts.google.com/o/oauth2/auth",
     token_uri: "https://oauth2.googleapis.com/token",
     auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-    client_secret: "Eu7vZXxAK8hMY0-fVx45FNGr",
+    client_secret: "LGbI6VdgPyE8rZSp2h1AhCDM",
     redirect_uris: ["http://localhost:3001/googleAuth"],
+ 
 };
+
+
 module.exports = keys;
 
 

@@ -1,10 +1,17 @@
 const { google } = require("googleapis");
 const express = require('express');
 const router = express.Router();
+const auth = require("../util/version2")
 
 
-function listFiles(auth) {
-    const drive = google.drive({version: 'v3', auth});
+
+
+function listFiles() {
+    // auth();
+    const drive = auth(26);
+
+    // const drive = google.drive({version: 'v3', auth});
+
     drive.files.list({pageSize: 10, fields: 'nextPageToken, files(id, name)'})
     .then(res =>{
         const files = res.data.files;

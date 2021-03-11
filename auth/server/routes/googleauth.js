@@ -25,7 +25,7 @@ router.get('/getAuthURL', (req, res) => {
 })
 
 router.get('/oauth2Callback', (req, res) => {
-    // res.send(req.query.code)
+  
     let code = req.query.code;
     console.log(`code ${code}`);
 
@@ -50,10 +50,7 @@ router.get('/oauth2Callback', (req, res) => {
                 expiry_date : expiry_date
               })
             
-            //my token
-            //code 4/0AY0e-g43K8FI2AdNhcDboVYiJxuN_0f1Z1R0dapXwdiQ6wbS-e2d5yNEja36jc_2Qvgz8g
-            //{"access_token":"ya29.a0AfH6SMDlE3iJ_tnviAS_douNWkz0TstIAskZ6E_XuiSEToOojJNYeXEStTKt1r-U9MOQ8WB9BoF4sO95jhz6pUHOAUKbIJw9ILX55Y-e-19n61C72OtNPgkQbe5yY1aAAtkUkDp45N2v3izkONjpE0d1Yjb0","refresh_token":"1//0fK8Az1bWCEWQCgYIARAAGA8SNwF-L9Irtoy9vEA0mD7xdffeCi3-XrF9bg7m7TqPzTvfwLDU8eoFSA7CIJjvXRitgeAjmbQjXik","scope":"https://www.googleapis.com/auth/drive","token_type":"Bearer","expiry_date":1615415402012}
-            
+           
             
             // res.json(token);
             res.send('successful')

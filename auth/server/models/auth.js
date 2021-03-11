@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     token: DataTypes.STRING,
     refresh_token: DataTypes.STRING,
     scope: DataTypes.STRING,
-    token_type: DataTypes.STRING
+    token_type: DataTypes.STRING,
+    expiry_date: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'auth',

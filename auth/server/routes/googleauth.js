@@ -34,7 +34,6 @@ router.get('/oauth2Callback', (req, res) => {
     
     console.log('code inside of callback', code);
 
-  
     res.redirect(`http://localhost:3000/completeCallback/${encodeURIComponent(code)}`)
 
 })
@@ -93,7 +92,7 @@ router.post('/files', requireAuth, async (req, res) => {
     }) 
 
     const files = results.data.files;
-   
+    
     let output = '';  //this was const instead of let :) 
     files.forEach(file =>{
       output += `${file.name} (${file.id}) <br />`

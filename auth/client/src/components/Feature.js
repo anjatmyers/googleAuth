@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
-import {useHistory, useLocation} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom';
+import axios from 'axios';
 
 
 const Feature = () => {
 
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [driveFiles, setDriveFiles] = useState([])
 
   useEffect((params) => {
     const token = user?.token
@@ -15,7 +17,29 @@ const Feature = () => {
 
   }, [location])
 
+  const getFiles = () => {
 
+    const files = async () => {
+      let response = await axios.post('http://localhost:3001/files',{},
+        {
+            headers: {
+            "content-type": "application/json",
+            authorization: localStorage.getItem('token'),
+            },
+        });
+
+        //console.log(response.data.files);
+
+        setDriveFiles(()=>response.data);
+
+        console.log(driveFiles);
+    }//end of files
+
+    files();
+
+    
+
+  }
 
   return <div style={{height: "100vh"}} className="d-flex flex-column justify-content-center align-items-center">
   <h1 className="text-white">Feature Page</h1>
@@ -23,6 +47,10 @@ const Feature = () => {
   <img src={user?.result.imageUrl}></img>
   <h3 className="text-warning">This is a protected page</h3>
   <h5 className="text-info">This page should only be seen if user is logged in</h5>
+
+  <button onClick={getFiles}>Get Files</button>
+
+  
  </div>
 };
 

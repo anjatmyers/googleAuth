@@ -50,7 +50,7 @@ const token = checkToken();
 
 // initializing redux store
 // requires a reducer. Second argument is for redux dev-tools extension.
-let store = createStore(reducer, {auth: {authenticated: ""}}, 
+let store = createStore(reducer, {auth: {authenticated: localStorage.getItem('token')}}, 
   compose(
     applyMiddleware(reduxThunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

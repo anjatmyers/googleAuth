@@ -21,7 +21,7 @@ require('../config/passAuth'); //imports all of passport auth stuff
 
 let requireSignIn = passport.authenticate('local', {session: false});
 let requireAuth = passport.authenticate('jwt', {session: false});
-// have to specify that we're not usin cookie sessions which is the default 
+// have to specify that we're not using cookie sessions which is the default 
 
 // this function returns json webtoken from user info
 const token = (user) => {
@@ -53,8 +53,6 @@ router.post('/signin', requireSignIn, (req, res) => {
     
     res.json({token: token(req.user)})
 })
-
-
 
 
 // SIGNING UP registering a new user and send back jwt

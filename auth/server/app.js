@@ -27,7 +27,6 @@ app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/
 })
 
 
-
 app.listen(3001, () => {
     console.log('listening on port 3001');
 })

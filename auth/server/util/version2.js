@@ -7,9 +7,7 @@ const db = require('../models');
 
 const getDriveObj =  async(userID) => {
 
-  
-
-  const userToken = await db.auth.findAll({where: {id: userID}}, {raw: true});
+  const userToken = await db.auth.findAll({where: {userID: userID}}, {raw: true});
   let token = userToken[0].dataValues;
   
   const oAuth2Client = new google.auth.OAuth2(

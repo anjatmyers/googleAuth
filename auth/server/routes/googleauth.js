@@ -74,14 +74,14 @@ router.get('/files', async (req, res) => {
   try{
 
     const drive = await auth(8);
-    console.log(drive)
+    
     const results = await drive.files.list({
       pageSize: 10,
       fields: 'nextPageToken, files(id, name)',
     }) 
 
     const files = results.data.files;
-    console.log(`files************\n ${files}`);
+   
     let output = '';  //this was const instead of let :) 
     files.forEach(file =>{
       output += `${file.name} (${file.id}) <br />`

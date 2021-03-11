@@ -29,14 +29,19 @@ const token = (user) => {
     let timestamp = new Date().getTime();
     // gives us the current time
 
-
     return jwt.encode({sub: user.id, iat: timestamp}, config.secret)
 }
 
 
-
-router.get('/', requireAuth, (req, res) => {
+router.get('/',  (req, res) => {
+   
     res.send('Hello World')
+});
+
+router.post('/checkToken', requireAuth, (req, res) => {
+    
+    console.log("userID: ");
+    res.json({valid: 1})
 });
 
 
@@ -60,7 +65,6 @@ router.post('/signup', async (req, res) => {
     let email = req.body.email;
     // encrypt: bcrypt to encrypt password
     let password = bcrypt.hashSync(req.body.password, 8);
-
 
 
     // models - we need to store the new info in our db 

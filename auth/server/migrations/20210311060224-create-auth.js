@@ -8,6 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userID: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users', 
+          key: 'id'
+        }, 
+        allowNull: false
+      },
       token: {
         type: Sequelize.STRING
       },
@@ -18,6 +26,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       token_type: {
+        type: Sequelize.STRING
+      },
+      expiry_date: {
         type: Sequelize.STRING
       },
       createdAt: {

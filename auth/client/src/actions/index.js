@@ -7,7 +7,14 @@ export const getURL = () => {
     return async dispatch =>{
 
         try{
-            let response = await axios.post('http://localhost:3001/getURL');
+            let response = await axios.post('http://localhost:3001/getURL',{},
+            {
+              headers: {
+                "content-type": "application/json",
+                authorization: localStorage.getItem('token'),
+              },
+            });
+
 
             console.log(response.data);
 
@@ -24,7 +31,7 @@ export const getURL = () => {
             // cb();
         }
         catch(e){
-            console.log("error from getURL action")
+            console.log("error from getURL action: ", e)
         }
     }
     
